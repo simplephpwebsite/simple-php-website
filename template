@@ -1,26 +1,31 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title><?php page_title(); ?> | <?php site_name(); ?></title>
+    <link href="<?php site_url(); ?>/template/style.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body>
+<div class="wrap">
 
-/**
- * Used to store website configuration information.
- *
- * @var string or null
- */
-function config($key = '')
-{
-    $config = [
-        'name' => 'Simple PHP Website',
-        'site_url' => '',
-        'pretty_uri' => false,
-        'nav_menu' => [
-            '' => 'Home',
-            'about-us' => 'About Us',
-            'products' => 'Products',
-            'contact' => 'Contact',
-        ],
-        'template_path' => 'template',
-        'content_path' => 'content',
-        'version' => 'v3.1',
-    ];
+    <header>
+        <h1><?php site_name(); ?></h1>
+        <nav class="menu">
+            <?php nav_menu(); ?>
+        </nav>
+    </header>
 
-    return isset($config[$key]) ? $config[$key] : null;
-}
+    <article>
+        <h2><?php page_title(); ?></h2>
+        <?php page_content(); ?>
+    </article>
+
+    <footer>
+        <small>&copy;<?php echo date('Y'); ?> <?php site_name(); ?>.<br><?php site_version(); ?></small>
+    </footer>
+
+</div>
+</body>
+</html>
